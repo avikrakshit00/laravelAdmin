@@ -12,7 +12,13 @@
    <div class="content-wrapper">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
-          <div class="card-body">
+        <div class="card-body">
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+            @endif
             <h3 class="card-title">Add Category</h3>
             <form class="forms-sample" action="{{url ('admin.add_category')}}" method="POST">
               @csrf
@@ -26,13 +32,10 @@
                 <input type="text" class="form-control" id="categorySlug" name="cat_slug" placeholder="Category Slug">
                 <span style="color: red">@error('cat_slug'){{ $message}}@enderror</span>
               </div>
-              <button type="submit" class="btn btn-primary mr-2">Submit</button>
-              <button class="btn btn-dark">Cancel</button>
+              <button type="submit" class="btn btn-outline-success mr-2">Submit</button>
             </form>
           </div>
         </div>
       </div>
    </div>
-
-@include('admin.includes.footer')
 @include('admin.includes.js')

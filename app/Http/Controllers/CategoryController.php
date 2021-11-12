@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
+
+
 class CategoryController extends Controller
 {
     public function addCategory()
@@ -34,14 +36,41 @@ class CategoryController extends Controller
             $category ->cat_slug = $request ->cat_slug;
 
             $category->save();
-            return redirect('admin.add_category');
+            return redirect('admin.manage_category')->with('success','Category successfully added.');
     }
-
-
-
 
     public function manageCategory()
     {
         return view('admin.manage_category');
+    }
+
+    public function showCategory()
+    {
+        $category = Category::paginate(10);
+        return view('admin.manage_category', compact('category'));
+    }
+
+    public function editCategory($id)
+    {
+        $categories = Category::find($id);
+        if(is_null($categories)){
+            return redirect('admin.manage_category');
+        }
+        else
+        {
+            $data = compact('categories');
+            return view('admin.edit_category')->with($data);
+        }
+    }
+
+    public function updateCategory(Request $request ,$id)
+    {
+        $categories = Category::find($id);
+        $categories ->cat_name = $request ->cat_name;
+        $categories ->cat_slug = $request ->cat_slug;
+
+        $categories->update();
+        return redirect('admin.manage_category')->with('success','Category updated successfully.');;
+
     }
 }

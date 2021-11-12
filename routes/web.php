@@ -19,7 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::name('admin.')->group(function () {
 
 // Admin Route
 Route::get('admin.login', [AdminController::class,'login'])->name('login');
@@ -33,8 +32,12 @@ Route::get('admin.add_category', [CategoryController::class,'addCategory'])->nam
 Route::post('admin.add_category', [CategoryController::class,'storeCategory']);
 
 Route::get('admin.manage_category', [CategoryController::class,'manageCategory'])->name('manage_category');
+Route::get('admin.manage_category', [CategoryController::class,'showCategory']);
 
-// });
+Route::get('admin.edit_category/{id}', [CategoryController::class,'editCategory']);
+Route::post('admin.category_update/{id}', [CategoryController::class,'updateCategory']);
+
+
 
 
 

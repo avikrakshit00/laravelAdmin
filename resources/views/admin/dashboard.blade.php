@@ -112,5 +112,5 @@
       </div>
    </div>
 
-@include('admin.includes.footer')
+
 @include('admin.includes.js')
