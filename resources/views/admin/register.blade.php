@@ -10,22 +10,22 @@
                     @csrf
                       <div class="form-group">
                          <label>Username</label>
-                         <input type="text" class="form-control p_input" name="name" placeholder="Username" autocomplete="off">
+                         <input type="text" class="form-control p_input" name="name" placeholder="Username" autocomplete="">
                          <span style="color: red">@error('name'){{ $message}}@enderror</span>
                       </div>
                       <div class="form-group">
                          <label>Email</label>
-                         <input type="email" class="form-control p_input" name="email"  placeholder="Email id" autocomplete="off">
+                         <input type="email" class="form-control p_input" name="email"  placeholder="Email id" autocomplete="">
                          <span style="color: red">@error('email'){{ $message}}@enderror</span>
                       </div>
                       <div class="form-group">
                          <label>Password</label>
-                         <input type="password" class="form-control p_input" name="password"  placeholder="Password" autocomplete="off">
+                         <input type="password" class="form-control p_input" name="password"  placeholder="Password" autocomplete="">
                          <span style="color: red">@error('password'){{ $message}}@enderror</span>
                       </div>
                       <div class="form-group">
                          <label>Retype Password</label>
-                         <input type="password" class="form-control p_input" name="cpassword" placeholder="Retype Password" autocomplete="off">
+                         <input type="password" class="form-control p_input" name="cpassword" placeholder="Retype Password" autocomplete="">
                          <span style="color: red">@error('cpassword'){{ $message}}@enderror</span>
                       </div>
                       <div class="text-center">
