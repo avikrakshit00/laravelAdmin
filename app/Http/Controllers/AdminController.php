@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Adminlogin;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class AdminController extends Controller
 {
@@ -12,6 +14,33 @@ class AdminController extends Controller
     {
         return view ('admin.index');
     }
+
+    public function loginSuccess(Request $request) // Have to resolve
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ],
+        [
+            'email.required' => 'Email must be required',
+            'password.required' => 'Password must be required',
+
+        ]);
+        $admin = Adminlogin::where('email','=',$request->email)->first();
+        if($admin){
+            if(Hash::check($request->password, $admin->password)){
+                $request->session()->put('loginId', $admin->id);
+                return redirect('admin.dashboard');
+            }
+            else{
+                return "hi";
+            }
+        }
+        else{
+            return "Hello";
+        }
+    }
+
 
     public function register()
     {
@@ -46,8 +75,8 @@ class AdminController extends Controller
             $registrationForm = new Adminlogin;
             $registrationForm ->name = $request ->name;
             $registrationForm ->email = $request ->email;
-            $registrationForm ->password = md5($request ->password);
-            $registrationForm ->cpassword = md5($request ->cpassword);
+            $registrationForm ->password = Hash::make($request->password);
+            $registrationForm ->cpassword = Hash::make($request ->cpassword);
 
             $registrationForm->save();
             return redirect('admin.register');

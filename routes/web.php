@@ -23,12 +23,14 @@ Route::get('/', function () {
 
 // Admin Route
 Route::get('admin.login', [AdminController::class,'login'])->name('login');
+Route::post('admin.login', [AdminController::class,'loginSuccess']);
 Route::get('admin.register', [AdminController::class,'register'])->name('register');
 Route::post('admin.register', [AdminController::class,'registrationForm']);
 Route::get('admin.dashboard', [AdminController::class,'dashboard'])->name('dashboard');
 
 // Category Route
 Route::get('admin.add_category', [CategoryController::class,'addCategory'])->name('add_category');
+Route::post('admin.add_category', [CategoryController::class,'storeCategory']);
 
 Route::get('admin.manage_category', [CategoryController::class,'manageCategory'])->name('manage_category');
 
