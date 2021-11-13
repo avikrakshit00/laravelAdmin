@@ -20,7 +20,7 @@
             </div>
             @endif
             <h3 class="card-title">Add Category</h3>
-            <form class="forms-sample" action="{{url ('admin.add_category')}}" method="POST">
+            <form class="forms-sample" action="{{url ('admin/category/add')}}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="categoryName">Category Name</label>

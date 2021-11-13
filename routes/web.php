@@ -26,20 +26,20 @@ Route::get('admin.login', [AdminController::class,'login'])->name('login');
 Route::post('admin.login', [AdminController::class,'loginSuccess']);
 Route::get('admin.register', [AdminController::class,'register'])->name('register');
 Route::post('admin.register', [AdminController::class,'registrationForm']);
-Route::get('admin.dashboard', [AdminController::class,'dashboard'])->name('dashboard');
+Route::get('admin/dashboard', [AdminController::class,'dashboard'])->name('dashboard');
 
 // Category Route
-Route::get('admin.add_category', [CategoryController::class,'addCategory'])->name('add_category');
-Route::post('admin.add_category', [CategoryController::class,'storeCategory']);
+Route::get('admin/category/add', [CategoryController::class,'addCategory'])->name('addcategory');
+Route::post('admin/category/add', [CategoryController::class,'storeCategory']);
 
-Route::get('admin.manage_category', [CategoryController::class,'manageCategory'])->name('manage_category');
-Route::get('admin.manage_category', [CategoryController::class,'showCategory']);
+Route::get('admin/category/manage', [CategoryController::class,'manageCategory'])->name('managecategory');
+Route::get('admin/category/manage', [CategoryController::class,'showCategory']);
 
 Route::get('admin/editcategory/{id}', [CategoryController::class,'editCategory'])->name('editcategory');
 Route::post('admin/updatecategory/{id}', [CategoryController::class,'updateCategory'])->name('updatecategory');
 
 Route::get('admin/deletecategory/{id}', [CategoryController::class,'deleteCategory'])->name('deletecategory');
 
-Route::get('admin/product/add', [ProductController::class,'addProduct'])->name('product/add');
+Route::get('admin/product/add', [ProductController::class,'addProduct'])->name('addproduct');
 
 

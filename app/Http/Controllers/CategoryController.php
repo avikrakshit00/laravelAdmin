@@ -37,7 +37,7 @@ class CategoryController extends Controller
             $category ->cat_slug = $request ->cat_slug;
 
             $category->save();
-            return redirect('admin.manage_category')->with('success','Category successfully added.');
+            return redirect('admin/category/manage')->with('success','Category successfully added.');
     }
 
     public function manageCategory()
@@ -55,7 +55,7 @@ class CategoryController extends Controller
     {
         $categories = Category::find($id);
         if(is_null($categories)){
-            return redirect('admin.manage_category');
+            return redirect('admin/category/manage');
         }
         else
         {
@@ -71,7 +71,7 @@ class CategoryController extends Controller
         $categories ->cat_slug = $request ->cat_slug;
 
         $categories->update();
-        return redirect('admin.manage_category')->with('success','Category updated successfully.');;
+        return redirect('admin/category/manage')->with('success','Category updated successfully.');
 
     }
 
@@ -79,6 +79,6 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category ->delete();
-        return redirect()->back()->with('success','Category deleted successfully.');;
+        return redirect()->back()->with('success','Category deleted successfully.');
     }
 }
