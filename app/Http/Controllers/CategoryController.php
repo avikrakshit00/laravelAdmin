@@ -7,6 +7,7 @@ use App\Models\Category;
 
 
 
+
 class CategoryController extends Controller
 {
     public function addCategory()
@@ -41,13 +42,13 @@ class CategoryController extends Controller
 
     public function manageCategory()
     {
-        return view('admin.manage_category');
+        return view('admin/manage_category');
     }
 
     public function showCategory()
     {
         $category = Category::paginate(10);
-        return view('admin.manage_category', compact('category'));
+        return view('admin/manage_category', compact('category'));
     }
 
     public function editCategory($id)
@@ -72,5 +73,12 @@ class CategoryController extends Controller
         $categories->update();
         return redirect('admin.manage_category')->with('success','Category updated successfully.');;
 
+    }
+
+    public function deleteCategory($id)
+    {
+        $category = Category::find($id);
+        $category ->delete();
+        return redirect()->back()->with('success','Category deleted successfully.');;
     }
 }

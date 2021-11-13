@@ -39,8 +39,8 @@
                         <td>{{ $cat->cat_name }}</td>
                         <td>{{ $cat->cat_slug }}</td>
                         <td>
-                            <a href="{{url('admin.edit_category',['id' =>$cat->id])}}" class="btn btn-outline-success btn-sm">Edit</a>
-                            <a href="" class="btn btn-outline-danger btn-sm">Delete</a>
+                            <a href="{{url('admin/editcategory/')}}/{{$cat->id}}" class="btn btn-outline-success btn-sm">Edit</a>
+                            <a href="{{url('admin/deletecategory/')}}/{{$cat->id}}" onclick="return confirm('Are you sure to want to delete it?')" class="btn btn-outline-danger btn-sm">Delete</a>
                         </td>
                       </tr>
                     @endforeach
@@ -55,6 +55,4 @@
 
       </div>
    </div>
-
-
 @include('admin.includes.js')

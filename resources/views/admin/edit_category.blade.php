@@ -14,7 +14,7 @@
         <div class="card">
         <div class="card-body">
             <h3 class="card-title">Update Category</h3>
-            <form class="forms-sample" action="{{url('admin.category_update',['id' => $categories->id])}}" method="POST">
+            <form class="forms-sample" action="{{url('admin/updatecategory/')}}/{{$categories->id}}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="categoryName">Category Name</label>
