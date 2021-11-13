@@ -42,13 +42,13 @@ class CategoryController extends Controller
 
     public function manageCategory()
     {
-        return view('admin/manage_category');
+        return view('admin.manage_category');
     }
 
     public function showCategory()
     {
         $category = Category::paginate(10);
-        return view('admin/manage_category', compact('category'));
+        return view('admin.manage_category', compact('category'));
     }
 
     public function editCategory($id)

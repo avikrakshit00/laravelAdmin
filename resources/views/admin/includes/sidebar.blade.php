@@ -1,6 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-      <a class="sidebar-brand brand-logo" href="{{url ('admin/dashboard')}}"><img src="backend/images/logo.svg" alt="logo" /></a>
+      <a class="sidebar-brand brand-logo" href="{{url ('admin.dashboard')}}"><img src="backend/images/logo.svg" alt="logo" /></a>
       <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="backend/images/logo-mini.svg" alt="logo" /></a>
     </div>
     <ul class="nav">
@@ -8,7 +8,7 @@
         <div class="profile-desc">
           <div class="profile-pic">
             <div class="count-indicator">
-              <img class="img-xs rounded-circle " src="backend/images/faces/face17.jpg" alt="">
+              <img class="img-xs rounded-circle " src="backend/images/faces/face15.jpg" alt="">
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
@@ -54,7 +54,7 @@
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url ('admin/dashboard')}}">
+        <a class="nav-link" href="{{url ('admin.dashboard')}}">
           <span class="menu-icon">
             <i class="mdi mdi-speedometer"></i>
           </span>
@@ -86,7 +86,7 @@
         </a>
         <div class="collapse" id="auth">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Add Product </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url ('admin/product/add')}}"> Add Product </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> Manage Product </a></li>
 
           </ul>

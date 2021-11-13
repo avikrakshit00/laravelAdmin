@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::get('admin.login', [AdminController::class,'login'])->name('login');
 Route::post('admin.login', [AdminController::class,'loginSuccess']);
 Route::get('admin.register', [AdminController::class,'register'])->name('register');
 Route::post('admin.register', [AdminController::class,'registrationForm']);
-Route::get('admin/dashboard', [AdminController::class,'dashboard'])->name('dashboard');
+Route::get('admin.dashboard', [AdminController::class,'dashboard'])->name('dashboard');
 
 // Category Route
 Route::get('admin.add_category', [CategoryController::class,'addCategory'])->name('add_category');
@@ -39,6 +40,6 @@ Route::post('admin/updatecategory/{id}', [CategoryController::class,'updateCateg
 
 Route::get('admin/deletecategory/{id}', [CategoryController::class,'deleteCategory'])->name('deletecategory');
 
-
+Route::get('admin/product/add', [ProductController::class,'addProduct'])->name('product/add');
 
 
