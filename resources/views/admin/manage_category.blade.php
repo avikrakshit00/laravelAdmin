@@ -11,13 +11,15 @@
    <div class="main-panel">
    <div class="content-wrapper">
     <div class="col-lg-12 grid-margin stretch-card">
+        {!!Toastr::message() !!}
         <div class="card">
-            @if ($message = Session::get('success'))
+            {{-- @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>{{ $message }}</strong>
             </div>
-            @endif
+            @endif --}}
+
           <div class="card-body">
             <h3 class="card-title">Manage Category</h3>
             <p class="card-description">Manage Category </code>

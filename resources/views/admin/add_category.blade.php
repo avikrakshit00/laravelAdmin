@@ -11,14 +11,15 @@
    <div class="main-panel">
    <div class="content-wrapper">
     <div class="col-12 grid-margin stretch-card">
+        {!!Toastr::message() !!}
         <div class="card">
         <div class="card-body">
-            @if ($message = Session::get('success'))
+            {{-- @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>{{ $message }}</strong>
             </div>
-            @endif
+            @endif --}}
             <h3 class="card-title">Add Category</h3>
             <form class="forms-sample" action="{{url ('admin/category/add')}}" method="POST">
               @csrf

@@ -87,7 +87,7 @@
         <div class="collapse" id="auth">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{url ('admin/product/add')}}"> Add Product </a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> Manage Product </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url ('admin/product/manage')}}"> Manage Product </a></li>
 
           </ul>
         </div>

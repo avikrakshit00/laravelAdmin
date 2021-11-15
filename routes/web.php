@@ -41,5 +41,7 @@ Route::post('admin/updatecategory/{id}', [CategoryController::class,'updateCateg
 Route::get('admin/deletecategory/{id}', [CategoryController::class,'deleteCategory'])->name('deletecategory');
 
 Route::get('admin/product/add', [ProductController::class,'addProduct'])->name('addproduct');
+Route::post('admin/product/add', [ProductController::class,'storeProduct'])->name('storeproduct');
 
+Route::get('admin/product/manage', [ProductController::class,'manageProduct'])->name('manageproduct');
 

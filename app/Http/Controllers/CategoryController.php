@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
-
-
+use Brian2694\Toastr\Facades\Toastr;
 
 
 class CategoryController extends Controller
@@ -28,7 +27,7 @@ class CategoryController extends Controller
 
 
             'cat_slug.required' => 'Category slug must be needed',
-            'cat_name.slug' => 'Category slug must be at least 3 charecters',
+            'cat_slug.min' => 'Category slug must be at least 3 charecters',
             'cat_slug.unique' => 'Category slug already exists',
         ]);
 
@@ -37,7 +36,8 @@ class CategoryController extends Controller
             $category ->cat_slug = $request ->cat_slug;
 
             $category->save();
-            return redirect('admin/category/manage')->with('success','Category successfully added.');
+            Toastr::success('Category added successfully', 'Success');
+            return redirect()->back();
     }
 
     public function manageCategory()
@@ -71,7 +71,8 @@ class CategoryController extends Controller
         $categories ->cat_slug = $request ->cat_slug;
 
         $categories->update();
-        return redirect('admin/category/manage')->with('success','Category updated successfully.');
+        Toastr::success('Category updated successfully', 'Success');
+        return redirect('admin/category/manage');
 
     }
 
@@ -79,6 +80,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category ->delete();
-        return redirect()->back()->with('success','Category deleted successfully.');
+        Toastr::success('Category deleted successfully', 'Success');
+        return redirect()->back();
     }
 }
